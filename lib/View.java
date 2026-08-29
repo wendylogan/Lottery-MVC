@@ -1,4 +1,4 @@
-package deliverable3;
+package lib;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

@@ -1,5 +1,3 @@
-package lib;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,8 +13,9 @@ public final class View extends JFrame {
     private static final int AREA_ROWS = 20;
     private static final int AREA_COLUMNS = 40;
 
-    private static final String INPUT_SPECIFIER1 = "\nEnter just six different integers from 1 through 60, separated by one or more spaces:";
-    private static final String INPUT_SPECIFIER2 = "\nEnter just one integer from 1 through 100000:";
+    // Cleaner, user-friendly labels
+    private static final String LABEL_NUMBERS = "Your 6 Numbers (1-60):";
+    private static final String LABEL_DRAWS = "Number of Draws (1-100,000):";
 
     private JLabel labelSix;
     private JLabel labelReps;
@@ -29,7 +28,7 @@ public final class View extends JFrame {
     private final Controller cntl;
 
     public View(Controller controller) {
-        super("Lottery Numbers");
+        super("Lottery Simulator");
         cntl = controller;
         resultArea = new JTextArea(AREA_ROWS, AREA_COLUMNS);
         resultArea.setEditable(false);
@@ -37,32 +36,32 @@ public final class View extends JFrame {
 
         createTextFieldEnterSixNums();
         createTextFieldEnterReps();
-
         createButton();
         createPanel();
 
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
-        setLocationRelativeTo(null); // centers the frame
-        setDefaultCloseOperation(EXIT_ON_CLOSE); // quits when frame is closed
-        //https://stackoverflow.com/questions/13731710/allowing-the-enter-key-to-press-the-submit-button-as-opposed-to-only-using-mo
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         getRootPane().setDefaultButton(button);
     }
 
     private void createTextFieldEnterSixNums() {
-        labelSix = new JLabel(INPUT_SPECIFIER1);
+        labelSix = new JLabel(LABEL_NUMBERS);
         final int FIELD_WIDTH = 10;
         textSix = new JTextField(FIELD_WIDTH);
+        textSix.setToolTipText("Enter 6 numbers between 1 and 60, separated by spaces");
     }
     
     private void createTextFieldEnterReps() {
-        labelReps = new JLabel(INPUT_SPECIFIER2);
+        labelReps = new JLabel(LABEL_DRAWS);
         final int FIELD_WIDTH = 10;
         textReps = new JTextField(FIELD_WIDTH);
+        textReps.setToolTipText("Enter how many times to run the lottery (1-100,000)");
     }
     
     private void createButton() {
-        button = new JButton("Run lottery");
-        button.addActionListener(event -> showResults(textSix.getText(),textReps.getText()));
+        button = new JButton("Run Lottery");
+        button.addActionListener(event -> showResults(textSix.getText(), textReps.getText()));
     }
 
     private void createPanel() {
@@ -86,42 +85,31 @@ public final class View extends JFrame {
         boolean validInput = cntl.isJustSix(input);
         boolean validRep = cntl.isValidRep(reps);
         
-        //  if the user's entries are valid,
         if (validInput && validRep) {
-            // print the user's entries
-            resultArea.append("You entered the following values: ");
-            resultArea.append("\nLottery numbers: " + input.trim());
-            resultArea.append("\nNumber of drawings: " + reps.trim() + "\n");
+            resultArea.append("You entered the following values:\n");
+            resultArea.append("  Numbers: " + input.trim() + "\n");
+            resultArea.append("  Draws:   " + reps.trim() + "\n\n");
             
-            //  convert String reps to int repNum
             int repNum = Integer.parseInt(reps);
-            
-            //  convert String input to int [] userNums,
-            //      by first splitting input into String [] strings,
-            String [] strings = input.split(" ");
-            
-            //  then fill int [] userNums,
-            //      by converting each string in String [] strings to an int
-            //  Note: Used a for loop rather than a for-each to keep indexes consistent
-            int [] userNums = new int[6];
+            String[] strings = input.split("\\s+");
+            int[] userNums = new int[6];
             for (int i = 0; i < strings.length; i++){
                 userNums[i] = Integer.parseInt(strings[i]);
             }
             
-            //  calls getLottoResults in controller to get int [] results = int [] lottoResults
-            int [] lottoResults = cntl.getLottoResults(userNums, repNum);
+            int[] lottoResults = cntl.getLottoResults(userNums, repNum);
             
-            // iterate through int [] lottoResults,
-            for (int i = 0; i < lottoResults.length ; i++){
-                //  display each value in lottoResults 
-                //  (each value represents the number of lotteries where the user's numbers matched int index responses)
-                resultArea.append("\n"+ lottoResults[i] + " drawings matched " + i + " of your numbers.");
+            resultArea.append("=== Match Results ===\n");
+            for (int i = 0; i < lottoResults.length; i++){
+                resultArea.append("  " + lottoResults[i] + " drawing(s) matched " + i + " of your numbers.\n");
             }
-        // if the user enters invalid entries, return messages for the reasons they were invalidated
+            
         } else {
-            javax.swing.JOptionPane.showMessageDialog(new javax.swing.JFrame(),cntl.getInvalidMessage());
+            javax.swing.JOptionPane.showMessageDialog(
+                null,
+                cntl.getInvalidMessage()
+            );
             textSix.requestFocus();
         }
     }
-
 }

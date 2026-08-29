@@ -1,5 +1,3 @@
-package lib;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -27,7 +25,7 @@ public class Controller {
         // NOT EXACTLY 6 NUMBERS
         // checks if there are exactly 5 sets of (digit then space(s)) then 1 digit, followed by 0 or more digits
         boolean justSix = userNums.matches("(\\d+\\s+){5}\\d+\\s*");
-        if (!justSix){this.invalidMessage+= "- the input is not exactly just six different one- or two-digit integers separated by one or more spaces;\n";}
+        if (!justSix){this.invalidMessage+= "- Please enter exactly 6 numbers between 1 and 60, separated by spaces.\n";}
         
         // OUT OF BOUNDS and/or INVALID ENTRY
         boolean allNums = true;
@@ -37,7 +35,7 @@ public class Controller {
             // check if value is a digit before attempting to parseInt
             if (!num.matches("\\d+")){
                 allNums = false;
-                this.invalidMessage+= "- the input contains an entry that is not an integer;\n";
+                this.invalidMessage+= "- All entries must be whole numbers (integers).\n";
             }
             // if able to parse to int, check if in range
             else{
@@ -46,21 +44,21 @@ public class Controller {
             }
              
          }
-        if (!inBounds){this.invalidMessage+= "- the input contains an integer that is out of bounds;\n";}
+        if (!inBounds){this.invalidMessage+= "- Each number must be between 1 and 60.\n";}
         
         // DUPLICATES
         boolean unique = true;
         for (String num : nums){
             if (nums.lastIndexOf(num) != nums.indexOf(num)){unique = false;}
          } 
-        if (!unique){this.invalidMessage+= "- the input contains duplicate integers;\n";}
+        if (!unique){this.invalidMessage+= "- Please enter 6 unique numbers (no duplicates).\n";}
         
         return (justSix & inBounds & unique & allNums);
     }
      public boolean isValidRep(String reps) {
          // single check to see if entry for reps is valid
           if (!reps.matches("([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9]|[1-9][0-9][0-9][0-9][0-9]|100000)")){
-              this.invalidMessage+="- the input for repetitions is not just one integer from 1 through 100000;\n";
+              this.invalidMessage+="- Please enter a number between 1 and 100,000 for repetitions.\n";
               return false;
           }
           return true;

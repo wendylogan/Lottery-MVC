@@ -14,5 +14,30 @@ I built this to practice the MVC pattern and get more comfortable with Java Swin
 ## Running Locally
 
 ```bash
-javac *.java
-java Main
+  javac *.java
+  java Main
+```
+
+## What It Does
+- Server listens on port 12345
+
+- Client connects and sends a message
+
+- Server receives it, converts to uppercase, and sends it back
+
+- Client displays the response
+
+- Type quit to exit the client.
+
+## Files
+- Server.java – Listens for connections and echoes messages
+
+- Client.java – Sends messages and displays responses
+
+## What I Learned
+- How TCP sockets work in Java
+
+- Try-with-resources for clean resource management
+
+- Basic client-server architecture
+

@@ -14,30 +14,26 @@ I built this to practice the MVC pattern and get more comfortable with Java Swin
 ## Running Locally
 
 ```bash
-  javac *.java
-  java Main
+javac *.java
+java Main
 ```
 
-## What It Does
-- Server listens on port 12345
-
-- Client connects and sends a message
-
-- Server receives it, converts to uppercase, and sends it back
-
-- Client displays the response
-
-- Type quit to exit the client.
-
 ## Files
-- Server.java – Listens for connections and echoes messages
 
-- Client.java – Sends messages and displays responses
+- View.java – Handles the GUI layout and user interaction
 
-## What I Learned
-- How TCP sockets work in Java
+- Controller.java – Bridges the view and model, processes input
 
-- Try-with-resources for clean resource management
+- Model.java – Contains the simulation logic and data
 
-- Basic client-server architecture
+- Main.java – Entry point for the application
 
+## What I Learned/Practiced
+
+- MVC Pattern – Separating the logic, data, and UI made the code easier to manage and test
+
+- Java Swing – Putting together a functional GUI with panels, text fields, and event listeners
+
+- User Input Validation – Making sure the app handles invalid entries gracefully
+
+- Simulation Logic – Running thousands of lottery draws efficiently and tracking match results

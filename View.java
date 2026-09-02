@@ -2,15 +2,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public final class View extends JFrame {
-    private static final int FRAME_WIDTH = 800;
-    private static final int FRAME_HEIGHT = 500;
+    private static final int FRAME_WIDTH = 700;
+    private static final int FRAME_HEIGHT = 350;
 
-    private static final int AREA_ROWS = 20;
+    private static final int AREA_ROWS = 15;  // Reduced rows
     private static final int AREA_COLUMNS = 40;
 
     // Cleaner, user-friendly labels
@@ -66,12 +65,13 @@ public final class View extends JFrame {
 
     private void createPanel() {
         JPanel panel = new JPanel();
+        panel.setSize(400, 500);
         panel.add(labelSix);
         panel.add(textSix);
         panel.add(labelReps);
         panel.add(textReps);
-        JScrollPane scrollPane = new JScrollPane(resultArea);
-        panel.add(scrollPane);
+        // Just add the text area directly - no scroll pane
+        panel.add(resultArea);
         panel.add(button);
         add(panel);
     }

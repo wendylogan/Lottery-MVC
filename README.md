@@ -43,21 +43,19 @@ java Main
 Run lottery with valid inputs:
 
 <img src="screenshots/LMVC-1-success.png" width="600" style="max-width:100%;/">
-<br>
 
 Error handling for invalid lottery numbers:
 
 <img src="screenshots/LMVC-2-numbers-invalid.png" width="600" style="max-width:100%;/">
-<br>
 
 Error handling for invalid number of draws:
 
 <img src="screenshots/LMVC-3-numDraws-invalid.png" width="600" style="max-width:100%;/">
-<br>
 
 Error handling for multiple invalid inputs:
 
 <img src="screenshots/LMVC-4-both-invalid.png" width="600" style="max-width:100%;/">
 
 Error handling for blank inputs: 
+
 <img src="screenshots/LMVC-5-blank-invalid.png" width="600" style="max-width:100%;/">

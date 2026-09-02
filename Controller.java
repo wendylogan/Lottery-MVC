@@ -58,7 +58,7 @@ public class Controller {
      public boolean isValidRep(String reps) {
          // single check to see if entry for reps is valid
           if (!reps.matches("([1-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9]|[1-9][0-9][0-9][0-9][0-9]|100000)")){
-              this.invalidMessage+="- Please enter a number between 1 and 100,000 for repetitions.\n";
+              this.invalidMessage+="- Please enter a number between 1 and 100,000 for number of draws.\n";
               return false;
           }
           return true;

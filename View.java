@@ -9,10 +9,10 @@ public final class View extends JFrame {
     private static final int FRAME_WIDTH = 700;
     private static final int FRAME_HEIGHT = 350;
 
-    private static final int AREA_ROWS = 15;  // Reduced rows
+    private static final int AREA_ROWS = 15;
     private static final int AREA_COLUMNS = 40;
 
-    // Cleaner, user-friendly labels
+    // User-friendly labels
     private static final String LABEL_NUMBERS = "Your 6 Numbers (1-60):";
     private static final String LABEL_DRAWS = "Number of Draws (1-100,000):";
 
@@ -70,7 +70,6 @@ public final class View extends JFrame {
         panel.add(textSix);
         panel.add(labelReps);
         panel.add(textReps);
-        // Just add the text area directly - no scroll pane
         panel.add(resultArea);
         panel.add(button);
         add(panel);

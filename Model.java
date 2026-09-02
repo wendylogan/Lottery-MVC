@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Model {
 
-    // stores result in List
+    // Stores result in List
     private List<Integer> lottoResults;
  
     public Model() {
@@ -11,8 +11,8 @@ public class Model {
     }
 
     public List<Integer> doLottoDrawing() {
-        // condition: users' numbers are already validated
-        // returns a list of the 6 integers drawn in the lottery
+        // Condition: users' numbers are already validated
+        // Returns a list of the 6 integers drawn in the lottery
         this.lottoResults = new ArrayList<>();
         int drawing;
         while (this.lottoResults.size()<6){

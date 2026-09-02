@@ -58,7 +58,6 @@ Error handling for invalid number of draws:
 Error handling for multiple invalid inputs:
 
 <img src="screenshots/LMVC-4-both-invalid.png" width="600" style="max-width:100%;/">
-<br>
 
 Error handling for blank inputs: 
 <img src="screenshots/LMVC-5-blank-invalid.png" width="600" style="max-width:100%;/">

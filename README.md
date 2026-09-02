@@ -37,3 +37,28 @@ java Main
 - User Input Validation – Making sure the app handles invalid entries gracefully
 
 - Simulation Logic – Running thousands of lottery draws efficiently and tracking match results
+
+## Screenshots
+
+Run lottery with valid inputs:
+
+<img src="screenshots/LMVC-1-success.png" width="600" style="max-width:100%;/">
+<br><br>
+
+Error handling for invalid lottery numbers:
+
+<img src="screenshots/LMVC-2-numbers-invalid.png" width="600" style="max-width:100%;/">
+<br><br>
+
+Error handling for invalid number of draws:
+
+<img src="screenshots/LMVC-3-numDraws-invalid.png" width="600" style="max-width:100%;/">
+<br><br>
+
+Error handling for multiple invalid inputs:
+
+<img src="screenshots/LMVC-4-both-invalid.png" width="600" style="max-width:100%;/">
+<br><br>
+
+Error handling for blank inputs: 
+<img src="screenshots/LMVC-5-blank-invalid.png" width="600" style="max-width:100%;/">
